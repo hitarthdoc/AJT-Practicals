@@ -36,6 +36,8 @@ public class LoginCheck extends HttpServlet {
             String contextval = context.getInitParameter("pass");
             String configval = config.getInitParameter("uName");
             
+            Cookie ck = new Cookie("AJT_pract", "hitarth,doctor");
+            
             HttpSession session = request.getSession();
             
             session.setAttribute("uName", uName);
@@ -59,8 +61,14 @@ public class LoginCheck extends HttpServlet {
 //                out.println("</head>");
 //                out.println("<body>");
                 out.println("<br> <h1>Servlet LoginCheck at " + session.getAttribute("uName") + "</h1>");
+                
+                out.println("<form method=\"post\" action=\"./Cookie_Catch\"/>");
+                out.println("<input type=\"submit\"/>");
+                
                 out.println("</body>");
                 out.println("</html>");
+                
+                response.addCookie(ck);
             }
             else
             {
