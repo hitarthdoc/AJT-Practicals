@@ -63,6 +63,7 @@ public class LoginCheck extends HttpServlet {
                 out.println("<br> <h1>Servlet LoginCheck at " + session.getAttribute("uName") + "</h1>");
                 
                 out.println("<form method=\"post\" action=\"./Cookie_Catch\"/>");
+                out.println("<input type=\"checkbox\" name=\"Persistent\"/>");
                 out.println("<input type=\"submit\"/>");
                 
                 out.println("</body>");

@@ -53,11 +53,20 @@ public class Cookie_Catch extends HttpServlet {
                 out.println("<title>Servlet LoginCheck</title>");  
                 out.println("</head>");
                 out.println("<body>");
-                
+             
+            request.getParameter("Persistent");
+            out.println("<h1>" + request.getParameter("Persistent") + "</h1>");
+            
+            
             for(i=0; i<cks.length; i++)
             {   
                 ck = cks[i];
                 out.println("<p> " + ck.getName() + "&nbsp  " + ck.getValue() + " </p>");
+                if(request.getParameter("Persistent").equals("on"))
+                {
+                ck.setMaxAge(60*60*24);
+                }
+                response.addCookie(ck);
             }
             
 //                out.println("<h1>Servlet LoginCheck at " + configval + contextval + "</h1>");
